@@ -35,7 +35,13 @@ We'll briefly introduce our codes in this part. Please be advised that we **DO N
 ##3. Usage
 Please put your custom test data sets in the **TAtest** folder, with each raw e-mail as a single text file. (Just like the professor provides.)
 
-Use **hw3p4_1.py** to generate the corresponding vector of the your e-mail data sets. The output bag-of-words vector will be named by ***testTA.csv*** and placed in the same directory.
+Use **hw3p4_1.py** 
+
+```
+	$ python hw3p4_1.py
+```
+
+to generate the corresponding vector of the your e-mail data sets. The output bag-of-words vector will be named by ***testTA.csv*** and placed in the same directory.
 
 Then run **hw3p4_2.m** in MATLAB, it well call **classification.m**, which is the main function of building model and do testing. The output the result of test in the format of:
 

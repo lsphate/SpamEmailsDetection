@@ -1,40 +1,43 @@
 #README
 
-##1. File Structure
-- All applications are in the same directory: ___*.py___, ___*.m___
+##1. File Structure & Environment
+- All ___*.py___ and ___*.m___ applications must be placed in the same directory.
 
 - Because of the constraint of file size, we cannot submit our partition of the dataset. The partition of the raw e-mail text file we used is:
 
-	- The folder **Training** includes the raw e-mail text tile. 
+	- **Training** part includes the raw e-mail text tile. 
 
-		- **/Training/ham** for 		***0001.1999-12-10.farmer.ham.txt*** ~ ***4100.2001-03-29.farmer.ham.txt***, total 2903 files
+		- **ham**: *0001.1999-12-10.farmer.ham.txt* ~ *4100.2001-03-29.farmer.ham.txt*, total 2903 files
 	
-		- **/Training/spam** for ***0006.2003-12-18.GP.spam.txt*** ~ ***4198.2005-04-05.GP.spam.txt***, total 1198 files
+		- **spam**: *0006.2003-12-18.GP.spam.txt* ~ *4198.2005-04-05.GP.spam.txt*, total 1198 files
 
-	- The folder **Testing** includes the raw e-mail text tile.
+	- **Testing** part includes the raw e-mail text tile.
 
-		- **/Testing/ham** for ***4103.2001-03-29.farmer.ham.txt*** ~ ***5172.2002-01-11.farmer.ham.txt***, total 742 files
+		- **ham**: *4103.2001-03-29.farmer.ham.txt* ~ *5172.2002-01-11.farmer.ham.txt*, total 742 files
 
-		- **/Testing/spam** for ***4201.2005-04-05.GP.spam.txt*** ~ ***5171.2005-09-06.GP.spam.txt***, total 302 files
-		
-- Please put you custom test data set in **TAtest** folder, with each raw e-mail as single text file. (Just like the professor provides.)
+		- **spam**: *4201.2005-04-05.GP.spam.txt* ~ *5171.2005-09-06.GP.spam.txt*, total 302 files
 
-- Programming in **Mac OSX 10.10.3 64-bit** and **Matlab R2015a**.
+- Programming in **Mac OSX 10.10.3 64-bit**, **Matlab R2015a**, and **Python 2.7.9** with:
+	- snowballstemmer ver. 1.2.0
+	- stop-words ver 2015.2.23.1
 
-##2. Introduction
+##2. Pre-processing
 
-1. **hw3p4ipre1.py**: The Python application used to create the dictionary of the bag-of-words, and generate the corresponding vector of the e-mails data set.
-2. **hw3p4ipre2.m**: The Python application used to load the vectors in to MATLAB, and dump the workspace to ***vector.mat***.
-3. **vector.mat**: The training vectors of our model.
-4. **classification.m**: The MATLAB function of training the model and testing the input vector.
+We'll briefly introduce our code in this part. Please be advised that we **DO NOT** encourage you to run you own version of parameters because this would directly affect the accuracy of the prediction model.
+
+1. **hw3p4ipre1.py**: The Python application used to create the dictionary of the bag-of-words, generate the corresponding vectors of the e-mails data set. It well generate 4 CSV files in current directory, named by *trainS.csv*, *trainH.csv*, *testS.csv* and *testH.csv*.
+
+2. **hw3p4ipre2.m**: The MATLAB script used to load the 4 CSV files above into MATLAB, and dump the workspace to ***vector.mat***.
+
+	- **vector.mat**: This is the most important file that provides the parameters we need in building the model. We attach our own version of this file so please **DO** use this version while grading.
 
 
 ##3. Usage
-Use **hw3p4_1.py** to generate the corresponding vector of the **TEST** mails set.
+Please put you custom test data set in **TAtest** folder, with each raw e-mail as single text file. (Just like the professor provides.)
 
-Put all the test raw e-mail text files into **TAtest** folder in the same directory, then run **hw3p4i_2.py**. The output bag-of-words vector will be named by ***testTA.csv*** and placed in the sam directory.
+Use **hw3p4_1.py** to generate the corresponding vector of the your e-mails set. The output bag-of-words vector will be named by ***testTA.csv*** and placed in the same directory.
 
-Then run **hw3p4_2.m** in MATLAB, it well output the result of test in the format of:
+Then run **hw3p4_2.m** in MATLAB, it well call **classification.m**, which is the main function of building model and do testing. The output the result of test in the format of:
 
 ```
 	Final =
@@ -44,7 +47,12 @@ Then run **hw3p4_2.m** in MATLAB, it well output the result of test in the forma
 
 Where 0 represents hams and 1 represents spams.
 
-##4. Citation
+##4. Developer & Citation
+
+####Developer
+Hao-Hsiang Chuang (hc2751)
+
+Sun-Yi Lin (sl3833)
 
 ####Python Package
 https://pypi.python.org/pypi/snowballstemmer

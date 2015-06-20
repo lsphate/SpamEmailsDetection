@@ -6,9 +6,8 @@
 - Because of the constraint of file size, we cannot submit our partition of the dataset. The partition of the raw e-mail text file we used is:
 
 	- **Training** part includes:
-
 		- **ham**: *0001.1999-12-10.farmer.ham.txt* ~ *4100.2001-03-29.farmer.ham.txt*, total 2903 files.
-	
+			
 		- **spam**: *0006.2003-12-18.GP.spam.txt* ~ *4198.2005-04-05.GP.spam.txt*, total 1198 files.
 
 	- **Testing** part includes:
@@ -25,11 +24,13 @@
 
 We'll briefly introduce our codes in this part. Please be advised that we **DO NOT** encourage you to run you own version of parameters because this would directly affect the accuracy of the prediction model.
 
-1. **hw3p4ipre1.py**: The Python application used to create the dictionary of the bag-of-words, generate the corresponding vectors of the e-mails data set. It well create 4 CSV files in current directory, named by *trainS.csv*, *trainH.csv*, *testS.csv* and *testH.csv*.
+- **hw3p4ipre1.py**: The Python application used to create the dictionary of the bag-of-words, generate the corresponding vectors of the e-mails data set. It well create 4 CSV files in current directory, named by *Dictionary.csv*, *trainS.csv*, *trainH.csv*, *testS.csv* and *testH.csv*.
 
-2. **hw3p4ipre2.m**: The MATLAB script used to load the 4 CSV files above into MATLAB, and dump the workspace to *vector.mat*.
+	- **Dictionary.csv**: This is our dictionary library for generating bag-of-words vector. It's size related to the partition our raw data set. **We attach our version of this file so please DO use this version while grading**.  
+<br>
+- **hw3p4ipre2.m**: The MATLAB script used to load the other 4 CSV files above into MATLAB, and dump the workspace to *vector.mat*.
 
-	- **vector.mat**: This is the most important file that provides the parameters we need in building the model. We attach our own version of this file so please **DO** use this version while grading.
+	- **vector.mat**: This is the most important file that provides the parameters we need in building the model. **We attach our version of this file so please DO use this version while grading**.
 
 
 ##3. Usage
